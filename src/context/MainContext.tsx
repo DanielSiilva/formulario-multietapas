@@ -1,17 +1,18 @@
 import {
     createContext,
+    FormEvent,
     ReactNode,
     useState,
 } from 'react'
 
-  interface userProps{
-      user: string
-  }
+
   
 
   
   interface OrderContextType {
-    users: userProps[]
+    name: string[]
+    setName: (name:string[]) => void
+
   }
   
   export const OrderContext = createContext({} as OrderContextType)
@@ -21,13 +22,17 @@ import {
   }
   
   export function OrderContextProvider({ children }: OrderContextProviderProps) {
-    const [users, setUsers] = useState<userProps[]>([{user:'Template De estudos Para Projetos Pessoais'}])
-  
-    
+    const [name, setName] = useState([''])
+
+   
+
+   
+   
     return (
       <OrderContext.Provider
         value={{
-          users
+          name,
+          setName
         }}
       >
         {children}
