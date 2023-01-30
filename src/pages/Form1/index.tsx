@@ -7,7 +7,7 @@ export function Form1(){
     return(
 
         <C.Container>
-            <h1>Form - 01</h1>
+            <p>Bem-vindo(a)</p>
 
        
         </C.Container>
