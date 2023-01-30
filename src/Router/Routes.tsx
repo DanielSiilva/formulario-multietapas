@@ -17,7 +17,7 @@ export function Router (){
                 <Route  path="/" element ={<Home/>} />
                 <Route  path="/" element ={<Form1/>} />
                 <Route  path="/form2" element ={<Form2/>} />
-                <Route path="finalForm" element={<FInalForm/>} />
+                <Route path="/finalForm" element={<FInalForm/>} />
             </Route>
 
         </Routes>

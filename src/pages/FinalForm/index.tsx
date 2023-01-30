@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { OrderContext } from '../../context/MainContext'
 import * as C from './styled'
 
@@ -9,6 +10,13 @@ export function FInalForm(){
     const isLevel = level.map((item) => item);
     const isStack = stack.map((item) => item);
     const isWage = wage.map((item) => item);
+
+
+    const navigate = useNavigate()
+
+    function handlePageHome(){
+        navigate('/')
+    }
 
 
     return(
@@ -22,11 +30,11 @@ export function FInalForm(){
                 <ul>
                     <li>Stack: <strong>{isStack}</strong></li>
                     <li>Senioridade: <strong>{isLevel}</strong></li>
-                    <li>Pretenção Salarial: <strong>{isWage}</strong></li>
+                    <li>Pretenção Salarial: R$<strong>{isWage}</strong></li>
                 </ul>
             </C.InformationList>
             
-            <button> Finalizar</button>
+            <button onClick={handlePageHome}> Finalizar</button>
         </C.Container>
     )
 }

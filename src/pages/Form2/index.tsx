@@ -1,4 +1,5 @@
 import { ChangeEvent, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { OrderContext } from '../../context/MainContext'
 import * as C from './styled'
 
@@ -10,6 +11,8 @@ export function Form2(){
     const [newWage, setNewWage] = useState('')
     const [newLevel, setNewLevel] = useState('')
 
+    const navigate = useNavigate()
+
     function handleCreateNewWage(event: ChangeEvent<HTMLFormElement>){
         event.preventDefault()
 
@@ -18,6 +21,8 @@ export function Form2(){
 
         setNewWage('')
         setNewLevel('')
+
+        navigate('/finalForm')
     }
 
     function handleCreateNewWageChange(event: ChangeEvent<HTMLInputElement>){
