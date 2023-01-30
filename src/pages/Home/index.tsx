@@ -2,16 +2,15 @@
 import {Wrapper} from "./styled"
 import { useContext } from "react"
 import { OrderContext } from "../../context/MainContext"
+import { Form1 } from "../Form1"
 
 
 
 export function Home (){
-    const {users} = useContext(OrderContext)
-
-    const user = users.map((item) => item.user)
+    
     return(
         <Wrapper>
-           <h1>{user}</h1>
+           <Form1 />
         </Wrapper>
     )
 }
