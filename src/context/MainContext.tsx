@@ -10,8 +10,11 @@ import {
 
   
   interface OrderContextType {
-    name: string[]
-    setName: (name:string[]) => void
+    name: string[],
+    setName: (name:string[]) => void,
+
+    stack: string[],
+    setStack: (name:string[]) => void,
 
   }
   
@@ -23,16 +26,20 @@ import {
   
   export function OrderContextProvider({ children }: OrderContextProviderProps) {
     const [name, setName] = useState([''])
-
+    const [stack, setStack] = useState([''])
    
 
+    console.log(name)
+    console.log(stack)
    
    
     return (
       <OrderContext.Provider
         value={{
           name,
-          setName
+          setName,
+          setStack,
+          stack
         }}
       >
         {children}

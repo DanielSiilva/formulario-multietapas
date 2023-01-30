@@ -50,7 +50,14 @@ export const FormContainer = styled.form`
             border-radius: 4px;
 
             cursor: pointer;
+
+            :disabled{
+                opacity: 0.7;
+                cursor: not-allowed;
+            }
     }
+
+
 
 
     div{
