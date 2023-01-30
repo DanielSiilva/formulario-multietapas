@@ -3,24 +3,46 @@ import { OrderContext } from '../../context/MainContext'
 import * as C from './styled'
 
 export function Form2(){
-    const {name, wage,setWage} = useContext(OrderContext)
+    const {name, wage,setWage, level,setLevel} = useContext(OrderContext)
     const isName = name.map((item) => item)
 
 
     const [newWage, setNewWage] = useState('')
+    const [newLevel, setNewLevel] = useState('')
 
     function handleCreateNewWage(event: ChangeEvent<HTMLFormElement>){
+        event.preventDefault()
 
         setWage([...wage, newWage])
+        setLevel([...level, newLevel])
+
         setNewWage('')
+        setNewLevel('')
     }
 
     function handleCreateNewWageChange(event: ChangeEvent<HTMLInputElement>){
-            event.preventDefault()
+            event.target.setCustomValidity('')
 
             setNewWage(event.target.value)
     }
+
+    function handleNewWageInvalid(event: ChangeEvent<HTMLInputElement>){
+        event.target.setCustomValidity('Esse campo é obrigatório!')
+
+    }
+
+    function handleNewLevelChange (event: ChangeEvent<HTMLInputElement>){
+        event.target.setCustomValidity('')
+
+        setNewLevel(event.target.value)
+    }
+
+    function handleNewLevelInvalid(event: ChangeEvent<HTMLInputElement>){
+        event.target.setCustomValidity('Esse campo é obrigatório!')
+
+    }
     
+    const checkInput = newWage.length === 0 && newLevel.length === 0
 
     return(
 
@@ -34,7 +56,7 @@ export function Form2(){
             </C.TitleAndSubtitle>
            
 
-            <C.FormContainer >
+            <C.FormContainer onSubmit={handleCreateNewWage}>
                 <div>
                     <label>Faixa Salarial</label>
                     <input  
@@ -42,6 +64,7 @@ export function Form2(){
                         required
                         value={newWage}
                         onChange={handleCreateNewWageChange}
+                        onInvalid={handleNewWageInvalid}
                     />
                 </div>
                 
@@ -50,11 +73,14 @@ export function Form2(){
                     <input  
                         placeholder='ex: Senior II'
                         required
+                        value={newLevel}
+                        onChange={handleNewLevelChange}
+                        onInvalid={handleNewLevelInvalid}
                         
                     />
                 </div>
                 
-                <button type='submit'  >Proxima</button>
+                <button type='submit'  disabled={checkInput}>Proxima</button>
             </C.FormContainer>
         </C.Container>
     )

@@ -57,6 +57,8 @@ export const FormContainer = styled.form`
             :disabled{
                 opacity: 0.7;
                 cursor: not-allowed;
+
+                background: ${props => props.theme['gray']};
             }
     }
 

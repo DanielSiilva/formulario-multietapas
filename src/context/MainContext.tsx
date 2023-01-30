@@ -18,6 +18,8 @@ import {
     wage: string[],
     setWage: (name:string[]) => void,
 
+    level: string[],
+    setLevel:(name:string[]) => void,
 
   }
   
@@ -32,11 +34,11 @@ import {
     const [stack, setStack] = useState([''])
 
     const [wage, setWage] = useState([''])
+    const [level, setLevel] = useState([''])
    
+    console.log(wage)
+    console.log(level)
 
-    console.log(name)
-    console.log(stack)
-   
    
     return (
       <OrderContext.Provider
@@ -46,7 +48,9 @@ import {
           setStack,
           stack,
           setWage,
-          wage
+          wage,
+          setLevel,
+          level
         }}
       >
         {children}
