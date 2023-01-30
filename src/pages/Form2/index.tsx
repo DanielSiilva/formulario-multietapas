@@ -1,11 +1,26 @@
-import { useContext } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import { OrderContext } from '../../context/MainContext'
 import * as C from './styled'
 
 export function Form2(){
-    const {name} = useContext(OrderContext)
-
+    const {name, wage,setWage} = useContext(OrderContext)
     const isName = name.map((item) => item)
+
+
+    const [newWage, setNewWage] = useState('')
+
+    function handleCreateNewWage(event: ChangeEvent<HTMLFormElement>){
+
+        setWage([...wage, newWage])
+        setNewWage('')
+    }
+
+    function handleCreateNewWageChange(event: ChangeEvent<HTMLInputElement>){
+            event.preventDefault()
+
+            setNewWage(event.target.value)
+    }
+    
 
     return(
 
@@ -25,7 +40,8 @@ export function Form2(){
                     <input  
                         placeholder='ex: 3.000'
                         required
-                        
+                        value={newWage}
+                        onChange={handleCreateNewWageChange}
                     />
                 </div>
                 

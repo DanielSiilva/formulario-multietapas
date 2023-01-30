@@ -24,6 +24,7 @@ export function Form1(){
     }
 
     function handleNewNameChange(event: ChangeEvent<HTMLInputElement>) {
+        event.preventDefault()
         setNewName(event.target.value);
      }
 
