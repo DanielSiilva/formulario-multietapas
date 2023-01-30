@@ -49,7 +49,7 @@ export function Form1(){
 
             <C.FormContainer onSubmit={handleCreateNewNameIsStack}>
                 <div>
-                    <label>Nome</label>
+                    <label>Nome completo</label>
                     <input  
                         placeholder='Seu nome'
                         required

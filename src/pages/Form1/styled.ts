@@ -6,10 +6,13 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 
-    width: 50vw;
+    width: 30vw;
     height: 80vh;
+
+    border: 1px solid ${props => props.theme['gray']};
+    border-radius: 8px;
 
 
     padding: 1rem;
@@ -35,7 +38,7 @@ export const FormContainer = styled.form`
     
     gap: 0.5rem;
 
-    margin-top: 3rem;
+    margin-top: 2rem;
 
     
     button{

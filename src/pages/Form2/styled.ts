@@ -7,11 +7,15 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    gap: 1rem;
+    gap: 0.5rem;
 
-    width: 50vw;
+    margin-top: 4rem;
+
+    width: 30vw;
     height: 80vh;
     
+    border: 1px solid ${props => props.theme['gray']};
+    border-radius: 8px;
 
     padding: 1rem;
 
@@ -43,11 +47,12 @@ export const TitleAndSubtitle = styled.div`
 
 export const FormContainer = styled.form`
     display: flex;
+   
     flex-direction: column;
     
     gap: 0.5rem;
 
-    margin-top: 3rem;
+    margin-top: 2rem;
 
     
     button{
