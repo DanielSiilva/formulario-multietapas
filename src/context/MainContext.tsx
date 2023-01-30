@@ -15,6 +15,10 @@ import {
     stack: string[],
     setStack: (name:string[]) => void,
 
+    wage: string[],
+    setWage: (name:string[]) => void,
+
+
   }
   
   export const OrderContext = createContext({} as OrderContextType)
@@ -26,6 +30,8 @@ import {
   export function OrderContextProvider({ children }: OrderContextProviderProps) {
     const [name, setName] = useState([''])
     const [stack, setStack] = useState([''])
+
+    const [wage, setWage] = useState([''])
    
 
     console.log(name)
@@ -38,7 +44,9 @@ import {
           name,
           setName,
           setStack,
-          stack
+          stack,
+          setWage,
+          wage
         }}
       >
         {children}

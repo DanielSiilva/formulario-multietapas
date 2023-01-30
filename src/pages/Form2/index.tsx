@@ -3,7 +3,6 @@ import { OrderContext } from '../../context/MainContext'
 import * as C from './styled'
 
 export function Form2(){
-
     const {name} = useContext(OrderContext)
 
     const isName = name.map((item) => item)
