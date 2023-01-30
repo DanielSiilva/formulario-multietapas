@@ -24,12 +24,21 @@ export function Form1(){
     }
 
     function handleNewNameChange(event: ChangeEvent<HTMLInputElement>) {
-        event.preventDefault()
+        event.target.setCustomValidity('')
         setNewName(event.target.value);
-     }
+    }
+
+    function handleNewNameInvalid(event: ChangeEvent<HTMLInputElement>) {
+        event.target.setCustomValidity('Esse campo é obrigatório!')
+    }
+
+    function handleNewStackInvalid(event: ChangeEvent<HTMLInputElement>) {
+        event.target.setCustomValidity('Esse campo é obrigatório!')
+    }
+
 
     function handleNewStackChange(event: ChangeEvent<HTMLInputElement>){
-        event.preventDefault()
+        event.target.setCustomValidity('')
         setNewStack(event.target.value)
     }
 
@@ -55,6 +64,7 @@ export function Form1(){
                         required
                         value={newName}
                         onChange={handleNewNameChange}
+                        onInvalid={handleNewNameInvalid}
                     />
                 </div>
                 
@@ -65,6 +75,7 @@ export function Form1(){
                         required
                         value={newStack}
                         onChange={ handleNewStackChange}
+                        onInvalid={handleNewStackInvalid}
 
                     />
                 </div>
